@@ -244,8 +244,9 @@ def radargram(ar, ant, header, freq, figsize='auto', gain=1, stack=1, x='seconds
                 win = 'full'
             title = '%s - bgr: %s' % (title, win)
         plt.title(title)
-    if figx / figy >=1: # if x is longer than y (avoids plotting error where data disappears for some reason)
-        plt.tight_layout()#pad=fig.get_size_inches()[1]/4.) # then it's ok to call tight_layout()
+    if figsize!='auto':
+        if figx/figy>=1: # if x is longer than y (avoids plotting error where data disappears for some reason)
+            plt.tight_layout()#pad=fig.get_size_inches()[1]/4.) # then it's ok to call tight_layout()
     else:
         try:
             # the old way of handling
